@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeneralSans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "InstrumentSerif";
+  src: url("/assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.25rem;
+
+    /* BASSET Classy White Palette - OKLCH */
+    --background: 0.98 0.005 85;
+    --foreground: 0.12 0.01 60;
+
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.01 60;
+
+    --popover: 0.99 0.003 85;
+    --popover-foreground: 0.12 0.01 60;
+
+    /* Primary: deep warm charcoal */
+    --primary: 0.18 0.015 60;
+    --primary-foreground: 0.97 0.005 85;
+
+    /* Secondary: warm light gray */
+    --secondary: 0.92 0.015 85;
+    --secondary-foreground: 0.25 0.01 60;
+
+    /* Muted: soft warm gray */
+    --muted: 0.94 0.008 85;
+    --muted-foreground: 0.5 0.015 70;
+
+    /* Accent: champagne gold */
+    --accent: 0.82 0.06 78;
+    --accent-foreground: 0.15 0.01 60;
+
+    /* Destructive */
+    --destructive: 0.55 0.2 25;
+    --destructive-foreground: 0.97 0 0;
+
+    /* Borders */
+    --border: 0.88 0.01 80;
+    --input: 0.9 0.008 80;
+    --ring: 0.18 0.015 60;
+
+    /* Charts */
+    --chart-1: 0.18 0.015 60;
+    --chart-2: 0.82 0.06 78;
+    --chart-3: 0.55 0.1 140;
+    --chart-4: 0.45 0.08 200;
+    --chart-5: 0.65 0.12 40;
+
+    /* Sidebar */
+    --sidebar: 0.97 0.006 85;
+    --sidebar-foreground: 0.12 0.01 60;
+    --sidebar-primary: 0.18 0.015 60;
+    --sidebar-primary-foreground: 0.97 0.005 85;
+    --sidebar-accent: 0.93 0.01 80;
+    --sidebar-accent-foreground: 0.12 0.01 60;
+    --sidebar-border: 0.88 0.01 80;
+    --sidebar-ring: 0.18 0.015 60;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "GeneralSans", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Fraunces", serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Fraunces", serif;
+  }
+
+  .font-body {
+    font-family: "GeneralSans", sans-serif;
+  }
+
+  .font-italic-accent {
+    font-family: "InstrumentSerif", serif;
+    font-style: italic;
+  }
+
+  .text-gradient-earth {
+    background: linear-gradient(135deg, oklch(0.2 0.03 60), oklch(0.45 0.08 78));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      oklch(0.98 0.005 85 / 0.82) 0%,
+      oklch(0.97 0.005 85 / 0.55) 60%,
+      oklch(0.96 0.005 85 / 0.15) 100%
+    );
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px oklch(0.2 0.01 60 / 0.12);
+  }
+}
